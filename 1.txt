@@ -1,0 +1,1229 @@
+ About python
+ Install python
+ ...
+ ...
+
+ Python programming
+
+ 1) Procedure style 
+ 2) object oriented style
+ 3) Functional style
+
+
+ 
+ 1) Procedure style 
+ ===================
+ types - number(int,float,complex),str,bytes,None
+ containers - list tuple dict set
+	      ---------------
+	      list of list/tuple/dict
+	      tuple of list/tuple/dict
+	      dict of list/tuple/dict
+  
+ operators 
+ conditional statements //validation 
+ Looping statements 
+ FileHandling
+ Functions (user defined function)
+ Module
+ Package 
+ Regx
+ ---------------------------------------------------//Level 1
+
+ Object oriented style 
+ ----------------------
+ class object method inheritance MRO builtin methods 
+ iterator 
+ generator 
+  decorator
+  @classmethod,@staticmethod,@property
+ Exception Handling 
+ -------------------------------------------------//Level2
+ Functional style 
+ --------------------
+ lambda , map,filter,reduce 
+ ------------------------------------------------------------//level3
+ Case studies 
+ =============
+ python <----------->DB,web,SSH,subprocess,CGI ..
+
+
+
+------------------------------------------------------------------------------------------------
+ shell script			vs		python	script
+ 
+ command					function/DS/module
+ 
+ file:p1.sh					file: p1.py
+ -----------					===========
+ 1. validcommand1				1. print("Hello")
+ 2. validcommand2				2. print("Test1")
+ 3. invalid command				3. print("Test2")
+ 4. invalid command				4. xyz()
+ ..						5. print("Test3")
+ 100. invalid command				6. print("Test4")
+				
+ sh p1.sh					python p1.py{Enter}
+   (or)						Hello
+ chmod 777 p1.sh				Test1
+ ./p1.sh					Test2
+						xyz - Error (Exception) -- Exit from script
+ print 100 lines 
+ 
+ Compiler 
+ -------------
+ file: p1.c 
+
+ gcc -o p1 p1.c 
+ ./p1
+ 
+ 1..
+
+ 99..valid
+ 100. invalid 
+
+ compilation - failed
+
+int a;						a=10
+a=10;						b="Hello"
+						a="test"
+int b=20;					a=1.35
+						----------//dynamic type 
+===================================================================================================================
+
+ 
+How to write python program?
+
+ 1. python - subshell (commandline shell)
+
+ 2. python - editor - filename1.py filename2.py
+	  (notepad;notepad++;gedit;vim;nano etc)
+
+ 3. python - IDE - pycharm,jupyter notebook;spyder; visualstudio etc.,
+
+ 
+Error
+-------
+1. Syntax Error - not following python rule(s)
+
+2. Exception - Logical Error - following python rule(s) - logical error
+
+
+ex: print("Hello) <== Syntax Error 
+ 
+    var=100
+    print(VAR) <== Logical Error //ExceptionHandling 
+
+------------------------------------------------------------------------------------------
+
+comments 
+------------
+1.Single line comment # 
+
+2.Multiline comment ''' ...''' / """ ... """
+
+------------------------------------------------------------------------------------------
+
+NEW to python 
+
+STEP 1: understand topic - definition (what is <topicname>?)
+
+STEP 2: understand syntax (Rules) - about topic 
+ 
+STEP 3: Refer Existing Examples
+
+STEP 4: Exercise (activity)
+===========================================================================================
+ 
+ Variable 
+ ----------
+   -> namespace (or) label - it's holding value on the memory
+					  .....
+
+ Syntax:-
+ ---------
+ variablename = value
+ |
+ |__ A-Za-z_ (not digits and not allowed any specialchars/space)
+ |
+ |__ don't use python keywords as a variable 
+
+ Examples:-
+ -----------
+   var=10 ============================> var | 10 | 0x100
+   Fname="/etc/passwd"  ==============> Fname | /etc/passwd | 0x3455
+   IP='10.20.30.40'     ==============> IP |10.20.30.40 |0x3432
+   cost=134.42      ==================> cost |134.42 | 0x94552
+   _port=80  =========================> _port|80| 0x5666
+   ----------------------//valid 
+
+
+   4var=10 # invalid - starts with digits
+    v1=100 # valid   
+   $fname="p1.log" - invalid 
+    
+   fname lname="Ram kumar" # invalid 
+	^
+
+   count%code=5 # invalid
+ 
+   fname_lname="Ram Kumar" # valid 
+               
+   
+ 
+
+  multiline statement
+  ----------------------
+ print("""<html>
+	<head>
+	<title>Welcome</title>
+	<body>
+	<p>Message</p>
+	....
+	</body>
+	</head>
+	</html>""")
+ 
+ print('''data1
+	data2
+	data3''')
+
+
+>>> var=100
+>>> print(var)
+100
+>>> var
+100
+>>> s='sample data'
+>>> print(s)
+sample data
+>>> s
+'sample data'
+>>> print(VAR)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'VAR' is not defined
+>>> Fname="p1.log"
+>>> print(fname)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'fname' is not defined
+>>> print(FNAME)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'FNAME' is not defined
+>>> print(Fname)
+p1.log
+>>> a=100
+>>> b=23.343
+>>> c='data'
+>>>
+>>> print(a)
+100
+>>> print(b)
+23.343
+>>> print(c)
+data
+>>> print("value of a=",a)
+value of a= 100
+>>> print("value of a="+str(a))
+value of a=100
+>>>
+>>> # Task
+>>> # ------
+>>> # declare and initialize filesystem details (filesystemtype;index;fsize
+t)#
+>>>
+>>> fstype="xfs"
+>>> findex=1000
+>>> fsize='150GB'
+>>> mount="/D1"
+>>> print(fstype)
+xfs
+>>> print(findex)
+1000
+>>> print(fsize)
+150GB
+>>> print(mount)
+/D1
+>>> print("fstype")
+fstype
+>>> print('findex')
+findex
+>>> # To combine user defined string with named variable
+>>> # ---------------------------------------------------
+>>> print("file system type is:",fstype,"File Size:",fsize)
+file system type is: xfs File Size: 150GB
+>>>
+>>> print("data1\ndata2\ndata3\tdata4\ndata5")
+data1
+data2
+data3   data4
+data5
+>>> print("data1",\n)
+  File "<stdin>", line 1
+    print("data1",\n)
+                    ^
+SyntaxError: unexpected character after line continuation character
+>>>
+>>> # declare and initialize filesystem details (filesystemtype;index;fsize
+t)
+>>> # using print() - display filesystem details - line by line
+>>>
+>>> print("File system is:",fstype,"\nFile Size:",fsize,"\nFile index:",fin
+File system is: xfs
+File Size: 150GB
+File index: 1000
+>>> print("<html>\n<head>\n<title>Welcome</title>\n<body><p>Hello</p></body
+ad></html>")
+<html>
+<head>
+<title>Welcome</title>
+<body><p>Hello</p></body></head></html>
+>>>
+>>> print('''<html>
+... <head>
+... <title>Welcome</title>
+... <body>
+... <p>Message</p>
+... </body>
+... </head>
+... </html>''')
+<html>
+<head>
+<title>Welcome</title>
+<body>
+<p>Message</p>
+</body>
+</head>
+</html>
+>>>
+>>> var=100
+>>> cost=1343.43
+>>> name="userA"
+>>>
+>>> print("var value is:",var,"\n cost is:",cost,"\nname is:",name)
+var value is: 100
+ cost is: 1343.43
+name is: userA
+>>>
+>>> # in C int ->%d float ->%f string ->%s
+>>> #
+>>> print("var value is:%d\ncost is:%f\nname is:%s"%(var,cost,name))
+var value is:100
+cost is:1343.430000
+name is:userA
+>>> print("""var value is:%d
+... cost is:%f
+... name is:%s"""%(var,cost,name))
+var value is:100
+cost is:1343.430000
+name is:userA
+>>> print("var value is:%d\ncost is:%f\nname is:%s"%(var,cost,name),"name i
+ame)
+var value is:100
+cost is:1343.430000
+name is:userA name is: userA
+>>>
+>>> a=45
+>>> print("a value is:%d"%(a))
+a value is:45
+>>> a="Hello"
+>>> print("a value is:%d"%(a))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: %d format: a number is required, not str
+>>>
+>>> # "{}{}{}".format(named_Var1,name_Var2,named_Var3)
+>>>
+>>> print("var value is:%d\ncost is:%f\nname is:%s"%(var,cost,name),"name i
+ame)
+var value is:100
+cost is:1343.430000
+name is:userA name is: userA
+>>>
+>>> print("var value is:{}\nCost is:{}\nname is:{}".format(var,cost,name))
+var value is:100
+Cost is:1343.43
+name is:userA
+>>>
+>>> a=45
+>>> print("a value is:{}".format(a))
+a value is:45
+>>> a=0.343
+>>> print("a value is:{}".format(a))
+a value is:0.343
+>>> a='data'
+>>> print("a value is:{}".format(a))
+a value is:data
+>>> print("a value is:{}")
+a value is:{}
+>>>
+>>> print("data1\\tdata2")
+data1\tdata2
+>>>
+>>> print("""Fsinfo:{}
+... Findex:{}
+... Fmount:{}""".format(fstype,findex,mount))
+Fsinfo:xfs
+Findex:1000
+Fmount:/D1
+>>> # Write a python program
+>>> # ----------------------------
+>>> # declare and initialize book details(author,code,price))
+>>> # use single print() function - display book details line by line
+>>> # Note: use format() method
+>>> #
+>>> author="Mr.X"
+>>> code=501
+>>> cost=1230.45
+>>>
+>>> print("""Autor name:{}
+... Code number:{}
+... Cost is:{}""".format(author,code,cost))
+Autor name:Mr.X
+Code number:501
+Cost is:1230.45
+>>>
+>>> print("author:",author,"\nCode number:",code,"\nCostis:",cost)
+author: Mr.X
+Code number: 501
+Costis: 1230.45
+>>>
+>>> print("author:%s\nCode number:%d\nCostis:%f"%(author,code,cost))
+author:Mr.X
+Code number:501
+Costis:1230.450000
+>>>
+>>> print("author:{}\nCode number:{}\nCostis:{}".format(author,code,cost))
+author:Mr.X
+Code number:501
+Costis:1230.45
+>>>
+
+####################################################################################################################
+
+ >>> # How to determine variable type?
+>>> # type(named_variable) (or) type(value)
+>>>
+>>> type(a)
+<class 'int'>
+>>> type(b)
+<class 'float'>
+>>> type(c)
+<class 'str'>
+>>> type(0)
+<class 'int'>
+>>> type(0.0)
+<class 'float'>
+>>> type('0.0')
+<class 'str'>
+>>>
+>>> print("variable a is holding value:",a,"Given type is:",type(a))
+variable a is holding value: 45 Given type is: <class 'int'>
+>>>
+>>> type(0.33)
+<class 'float'>
+>>>
+>>>
+
+
+
+##############################################################################################
+ typecasting
+ .................
+
+ a=45 ## given type is int
+ |
+ |___convert to float  ==>float(a) -->45.0
+ |
+ |___convert to string ==>str(a) -->'45'
+
+
+ b=23.456 # given type is float
+
+ |__ convert to int  -->int(b) -->23
+ |
+ |__ convert to string  ==> str(b) ==>'23.456'
+
+
+		  input()
+  Keyboard<STDIN> ------------Script -----------------Monitor(STDOUT)
+			      		 print()
+					 .......
+
+ python 2.x - raw_input() 
+
+ python 3.x - input()
+
+  Syntax:-
+  ----------
+   variable=input("prompt message:")
+
+    |__string (str)
+
+ 
+
+ 
+
+ operators
+ -----------
+ 1.arithmetic + - * / % // **  (int,float) -->int/float 
+
+ 2. Relational operators 
+
+ 3. Logical operators 
+
+ 4. membership operators 
+ 
+ 5. string + *
+
+
+>>> a=45
+>>> type(a)
+<class 'int'>
+>>>
+>>> float(a)
+45.0
+>>> str(a)
+'45'
+>>> b=34.56789
+>>> type(b)
+<class 'float'>
+>>> int(b)
+34
+>>> str(b)
+'34.56789'
+>>> type(a)
+<class 'int'>
+>>>
+>>> a=45
+>>> type(a)
+<class 'int'>
+>>>
+>>> float(a)
+45.0
+>>> a=float(a)
+>>> a
+45.0
+>>> type(a)
+<class 'float'>
+>>> s="456\n"
+>>> type(s)
+<class 'str'>
+>>> int(s)
+456
+>>> c='134.3433'
+>>>
+>>> int(c)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: '134.3433'
+>>>
+>>> float(c)
+134.3433
+>>> int(float(c))
+134
+>>> # var1=345 ->convert to float/string
+>>> # var2='456' -> convert to int/string
+>>> # var3=1.34 -->convert to int/string
+>>>
+>>> var1=345
+>>> type(var1)
+<class 'int'>
+>>>
+>>> float(var1)
+345.0
+>>> str(var1)
+'345'
+>>>
+>>> var2='456'
+>>> type(var2)
+<class 'str'>
+>>> int(var2)
+456
+>>> var3=1.34
+>>> str(var3)
+'1.34'
+>>>
+>>> int(var3)
+1
+>>> var3
+1.34
+>>> var3=int(var3)
+>>> var3
+1
+>>> IP=input("Enter a IP-Address:")
+Enter a IP-Address:10.20.30.40
+>>>
+>>> IP
+'10.20.30.40'
+>>>
+>>> n=input("Enter a n value:")
+Enter a n value:45
+>>> n
+'45'
+>>> n=input("Enter a n value:")
+Enter a n value:2332.343
+>>> n
+'2332.343'
+>>>
+>>>
+>>> n=input("Enter a n value:")
+Enter a n value:45
+>>> int(n)
+45
+>>> n=input("Enter a n value:")
+Enter a n value:2332.343
+>>> float(n)
+2332.343
+>>> # write a python program
+>>> # --------------------------
+>>> # modify existing code - filesystem details
+>>> # dynamically read input <KEYBOARD>
+>>> # display value to monitor(STDOUT)
+>>>
+>>>
+>>> 10+20
+30
+>>> 20.343+10
+30.343
+>>> type(20)
+<class 'int'>
+>>> type(20.343)
+<class 'float'>
+>>> type(10)
+<class 'int'>
+>>>
+>>> 2**3
+8
+>>> 2**5
+32
+>>> 3**2
+9
+>>> 3**5
+243
+>>> 45/5
+9.0
+>>> 45//5
+9
+>>> 34233/3
+11411.0
+>>> 34233//3
+11411
+>>>
+>>> s1='data1'
+>>> s2='data2'
+>>>
+>>> s1+s2
+'data1data2'
+>>> 10*3
+30
+>>> s1*5
+'data1data1data1data1data1'
+>>>
+>>> print("="*45)
+=============================================
+>>> 45/5
+9.0
+>>> 45//5
+9
+>>>
+=================================================
+ 
+   Write a python program:
+
+   STEP 1: read any two partition name and parititon size from <STDIN>
+   STEP 2: calculate sum of two partitions 
+   STEP 3: display each partition name , partition size and total partition size
+	   below format.
+
+
+	/dev/sda1		100 
+	/dev/sdb1		200 
+	--------------------------------
+	Total Partition Size:   300 GB
+	--------------------------------
+
+
+
+pn1=input("Enter a partition name:")
+ps1=input("Enter a {} Size:".format(pn1))
+
+pn2=input("Enter a partition name:")
+ps2=input("Enter a {} Size:".format(pn2))
+
+total=int(ps1)+int(ps2)
+
+print("""
+Partition Name:\t Size:
+---------------------------
+{}\t {}
+{}\t {}
+---------------------------
+Total Partition Size:{} GB
+----------------------------""".format(pn1,ps1,pn2,ps2,total))
+ 
+
+   Test your python shell
+   -----------------------
+	S1="450\n"
+	S2="33.135\n"
+	calculate sum of S1+S2 value?
+ 
+  >>> s1="450\n"
+  >>> s2="33.135\n"
+  >>>
+  >>> int(s1)+int(float(s2))
+     483
+  >>>
+
+###############################################################################################
+ Relational operators
+ ---------------------
+
+ == != < <= > >= (int,float,str) -->bool(True;False)
+
+
+ 10+20 10-5 10*5
+ --|--
+
+
+ in python expression - infix style 
+			-----
+			operand1<OPERATOR>operand2
+			..........................//expression
+
+	10+20
+	"a"+"b"
+	"ab"*5
+	100 == 100
+	100 >50
+	100 <500
+	
+	"abc" == "abc"
+
+	Logical operators
+	----------------
+	and
+	or
+	not
+	----//keywords 
+
+	in single conditional statement - test more than one condition //logical operators.
+
+	501-599 
+	
+
+	portnumber >500  --->(1)
+
+	portnumber <600  -->(2)
+
+
+	portnumber >500  <LOGICALOPERATOR> portnumber<600
+	...............			   ................
+
+	
+	Logical and 
+	------------
+	Condition1	Condition2	Result
+	-----------	----------	-------
+	True		True		True
+	True		False		False
+	False		True		False
+	False		False		False
+
+	Logical or
+	------------
+	condition1	condition2	result
+	-----------	----------	--------
+	True		True		True
+	True		False		True
+	False		True		True
+	False		False		False
+
+	Logical not
+	-------------
+	True --not--> False
+	False ---not--->True
+	
+
+
+
+
+
+
+
+
+>>> n=5
+>>> n++
+  File "<stdin>", line 1
+    n++
+      ^
+SyntaxError: invalid syntax
+>>> ++n
+5
+>>> n=n+1
+>>> n
+6
+>>> n=5
+>>> n+=1
+>>> n
+6
+>>> 10+20
+30
+>>> type(10+20)
+<class 'int'>
+>>>
+>>> 10+20.0
+30.0
+>>> 100>50
+True
+>>> 100<50
+False
+>>> type(True)
+<class 'bool'>
+>>> type(False)
+<class 'bool'>
+>>>
+>>> s1="root"
+>>> s2="root\n"
+>>>
+>>> s1==s2
+False
+>>> s1 != s2
+True
+>>> sname="root"
+>>> sv="bash"
+>>>
+>>> sname == "root"  and sv == "bash"
+True
+>>> sname == "root"  and sv == "ksh"
+False
+>>> sv1="tcsh"
+>>> sv1 == "bash" or sv == "ksh" or sv1 == "csh"
+False
+>>> sv1 == "bash" or sv == "bash" or sv1 == "csh"
+True
+>>> True
+True
+>>> not True
+False
+>>> # in python any expression ->bool (or) any method/function ->bool
+>>> #  we can use conditional statements
+>>> #             ------------------------
+>>> #                |_code block - validation/testing
+>>> #
+
+ if statement
+ ---------------
+ 1. if only 
+
+ 2. if..else 
+
+ 3. if..elif ..elif ..else 
+
+ 
+ 1. if only
+ ===========
+ Syntax:-
+ --------
+ if(condition1):
+ 	True block1
+	True block2
+	..
+	True blockN
+
+ 2 if..else
+ ===========
+ if(condition1):
+	True block
+ else:
+	False block
+
+ 
+
+>>
+>>
+>> s="abcabefa"
+>>
+>> s.count("a")
+
+>> s='root:x:bin:bash'
+>> s.count(":")
+
+>> s="root\nx\nbash"
+>> s.count("\n")
+
+>> s.count("-")
+
+>> if s.count("-") == 0:
+..     print("there is no - chars")
+..
+here is no - chars
+>>
+>> s="\ndata1\ndata2\n"
+>>
+>> s.strip()
+data1\ndata2'
+>> s.lstrip()
+data1\ndata2\n'
+>> s.rstrip()
+\ndata1\ndata2'
+>>
+>> s="data1\n"
+>> s1="Data2\t"
+>> s2="Data3 "
+>>
+>> s.strip()
+data1'
+>> s1.strip()
+Data2'
+>> s2.strip()
+Data3'
+>>
+>> s3="data:"
+>> s3.strip()
+data:'
+>>
+>> s3.strip(":")
+data'
+>> s4="root:x:bin:bash%"
+>>
+>> s4.strip("%")
+root:x:bin:bash'
+>> help(str.title)
+elp on method_descriptor:
+
+itle(self, /)
+   Return a version of the string where each word
+
+   More specifically, words start with uppercased
+   cased characters have lower case.
+
+>>
+>> s="abc"
+>>
+>> s.islower()
+rue
+>> if(s.islower()):
+..     s.upper()
+..
+ABC'
+>> s.lower()
+abc'
+>> s.islower()
+rue
+>> s
+abc'
+>> print(s)
+bc
+>> s.upper()
+ABC'
+>> s=s.upper()
+>> s
+ABC'
+>>
+>>
+>>
+>> s="AbC"
+>>
+>> for var in s:
+..     print(var)
+..
+
+
+
+>> v=b"AbC"
+>> type(v)
+class 'bytes'>
+>>
+>> for var in v:
+..     print(var)
+..
+5
+8
+7
+>> msg="asfasfsad sadfsdfsdafsadfsadf"
+>>
+>> msg.encode()
+'asfasfsad sadfsdfsdafsadfsadf'
+>>
+>> r=msg.encode()
+>> type(r)
+class 'bytes'>
+>>
+>> r.decode()
+asfasfsad sadfsdfsdafsadfsadf'
+>> s=r.decode()
+>> type(s)
+class 'str'>
+>>
+>> # int,float,str,bytes,bool,None -Single
+>> #           ----------
+>> # slicing
+>> s="abcdefgh"
+>> s[0]
+a'
+>> s[1]
+b'
+>> s[-2]
+g'
+>> # slicing
+>> # --------
+>> # string_name[n:m]
+>> #             | |
+>> # from nth index to m-1
+>> #
+>>
+>> s="sample python programming topics"
+>> len(s)
+2
+>> s[3:15] # from 3rd index to 14th index(15-1)
+ple python p'
+>>
+>> s[1:5] # from 1st index to 4th index
+ampl'
+>>
+>> # string[n:] # from nth index to list of all
+>>
+>> s[3:]
+ple python programming topics'
+>> s[1:]
+ample python programming topics'
+>> s[4:]
+le python programming topics'
+>>
+>>
+>> # string[:m] # from 0th index to m-1 index
+>> s[:5] # from 0th index to 4th index(5-1)
+sampl'
+>> s[5]
+e'
+>> s[:-5] # last 5chars
+sample python programming t'
+>>
+>> s[-5:]
+opics'
+>> s[-5:] # last 5chars
+opics'
+>>
+>> s[-10:] # last 10chars
+ing topics'
+>>
+>> s[-2:]
+cs'
+>>
+>> # string[n:m]
+>> #        | |__
+>> # start from 0th index to m-1 index
+>> ##           nth  ..
+>>
+>> # string[:m] - from 0th index to m-1
+>> #
+>> # string[m:] - from mth index to list of all
+>> #
+>> #
+>>
+>> s="testing"
+>>
+>> "t" in s
+rue
+>> "s" in s
+rue
+>> "ts" in s
+alse
+>> "st" in s
+rue
+>> "x" in s
+alse
+>>
+>> "x" not in s
+rue
+>> "e" not in s
+alse
+>>
+
+s1="root"
+
+if(s1 == "root"):
+	print("Success")
+
+if(s1 != "root"):
+  print("Success")
+else:
+
+	print("Try again") 
+
+if(condition1):
+	True block
+elif(condition2):
+	True block
+elif(condition3):
+	Truieblock3
+
+
+
+
+Write a python program
+
+STEP 1: read a user name from <STDIN>
+STEP 2: test input username is root or not
+				|	|
+				|	|
+STEP 3:	 		Success		|_sorry your not root user
+
+
+ name=input("Enter a usename:")
+ if(name == "root"):
+	print("Success")
+ else:
+	print("Sorry your not root user")
+
+Write a pythonprogram
+----------------------
+STEP 1: read a username from <STDIN>
+STEP 2: test input username is root or not
+				|
+		STEP 3: read a shell name from <STDIN>
+		STEP 4: test a inputshell bash is exists or not
+				|
+		STEP 5: display username and shell name
+
+ None 
+
+
+ name=input("Enter a usename:")
+ if(name == "root"):
+	var=input("Enter a shell")
+	if(var == "bash"):
+		print("Yes")
+	else:
+		print("No")
+ else:
+	print("Sorry your not root user")
+
+
+
+read a port number from <STDIN>
+test input port number - 601 - 699 //range 
+	|
+	Valid port or invalid port 
+
+
+
+===============================================================
+Looping statements 
+
+ 1.conditional style loop - //based on the condition
+		|_ while
+
+ 2. collection style loop - // based on the elements(str,bytes,List,tuple,dict,iterator)
+ 		|_ for 
+
+ Syntax:-
+-----------
+ initialization 
+ while(condition):
+	code block
+	arithmetic
+
+ 
+Syntax:-
+-----------
+for var in collection:
+	codeblock 
+-------------------------------------------------------------------------------------
+
+break - exit from loop
+continue - ignore - continue next 
+
+function - function call()
+
+function() 
+
+print()
+len()
+type()
+
+
+method - object.function()
+         -----------------//method call
+	
+"{}".format(var)
+ === -----------
+
+string_Variable.function()
+	(or)
+ "".function()
+
+
+var.xyz()
+|    00000
+|
+|__ type(var)
+	 |
+	help(var.xyz)
+
+help(str) vs help(str.method)
+---------    ================
+ |		|_particular method docs
+ |
+doc about string
+
+in python obj.isXYZ() ->True/False
+          =========================
+		|_ any expression or method returns bool(True/False) - Goto conditional statements
+		
+	if(obj.isXYZ()):
+		True
+	else:
+		False
+
+
+
+
+
+bytes  3.x
+----------------
+	Collection of chars ASCII
+
+
+membership 
+---------
+in not in
+
+"Pattern_string" in input_string
+ --------------     -------------
+
+":" in "root:x" ->True
+
+"," in "root:x" -->False
+
+
+>>> c=0
+>>> while(c<5):
+...     print("Test..{}".format(c))
+...     c=c+1
+...
+Test..0
+Test..1
+Test..2
+Test..3
+Test..4
+>>>
+>>> for var in range(5):
+...     print("Test...{}".format(var))
+...
+Test...0
+Test...1
+Test...2
+Test...3
+Test...4
+>>>
+>>>
+>>>
+
+
+
+#########################################################################################
