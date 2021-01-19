@@ -1,0 +1,2299 @@
+List,tuple, - filehandling - dict
+------------------------------------
+
+ Recap : int,float,str,bool,None,bytes
+	 ------------------------------//single 
+
+	var=value
+	    -----
+
+ List - Collection of ordered elements 
+			      ---------//int,float,str,bytes,bool,None
+	-> index based
+	-> list can hold different elements
+	-> list can hold duplicate elements
+	
+
+ Syntax:-
+ --------
+ listname=[collection of different elements]
+	   
+ recap string
+ --------------
+ s='abcdef'
+
+ s[1]
+ s[-1]
+ s[3:6] - 3rd index to 5th index
+ s[3:] - from 3rd index to list of all
+ s[-3:] - last 3 elements 
+
+ L=[10,3.4,'data1','data2','data3',True,100]
+      |   |       |       |       |    |
+    0   1     2      3       4      5    6
+    -7  -6   -5      -4     -3      -2  -1
+
+ L[index]  --> L[3]
+	       L[-1]
+        
+    L[1:4] # from 1st index to 3rd index(4-1)
+    L[1:] # from 1st index to list of all
+    L[-2:] # last 2elements 
+   
+
+>>> type(a)
+<class 'int'>
+>>> type(b)
+<class 'float'>
+>>> type(c)
+<class 'str'>
+>>> type(d)
+<class 'bool'>
+>>>
+>>> L=[a,b,c,d]
+>>> type(L)
+<class 'list'>
+>>> print(L)
+[10, 13.45, 'data', True]
+>>> for var in "abcd":
+...     print("Hello...{}".format(var))
+...
+Hello...a
+Hello...b
+Hello...c
+Hello...d
+>>>
+>>> L=[10,13.45,'data1','data2','data3']
+>>> for var in L:
+...     print("Hello..{}".format(var))
+...
+Hello..10
+Hello..13.45
+Hello..data1
+Hello..data2
+Hello..data3
+>>>
+>>> s='abc'
+>>> len(s)
+3
+>>> len(L)
+5
+>>> L
+[10, 13.45, 'data1', 'data2', 'data3']
+>>> L[0]
+10
+>>> L[1]
+13.45
+>>> L[2]
+'data1'
+>>> type(L)
+<class 'list'>
+>>> type(L[0])
+<class 'int'>
+>>> type(L[1])
+<class 'float'>
+>>> type(L[-1])
+<class 'str'>
+>>>
+>>> # str - collection of chars - index based - immutable
+>>> #
+>>> # list - collection of elements - index based - mutable
+>>>
+>>> L
+[10, 13.45, 'data1', 'data2', 'data3']
+>>> L[1]
+13.45
+>>> L[1]='data0'
+>>> L
+[10, 'data0', 'data1', 'data2', 'data3']
+>>> s
+'abc'
+>>> s[1]='x'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'str' object does not support item assignment
+>>>
+>>> s
+'abc'
+>>> s[0]
+'a'
+>>> s[1]
+'b'
+>>> s[2]
+'c'
+>>> s[3]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: string index out of range
+>>>
+>>>
+>>> L
+[10, 'data0', 'data1', 'data2', 'data3']
+>>> L[15]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+>>> L[3]=1234
+>>> L
+[10, 'data0', 'data1', 1234, 'data3']
+>>> L[15]='p1.log'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list assignment index out of range
+>>>
+>>> L=[] # empty list
+>>> len(L)
+0
+>>> # L.append(value) ->None
+>>>
+>>> L.append(100)
+>>> L.append(234)
+>>> L.append('data')
+>>> L.append('10.20.30.40')
+>>> L
+[100, 234, 'data', '10.20.30.40']
+>>>
+>>> # L.insert(index,value) ->None
+>>>
+>>> L.insert(1,'p1.log')
+>>> L
+[100, 'p1.log', 234, 'data', '10.20.30.40']
+>>> L.insert(3,'test.java')
+>>>
+>>> L
+[100, 'p1.log', 234, 'test.java', 'data', '10.20.30.40']
+>>> L[3]
+'test.java'
+>>> L[15]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+>>>
+>>> L.insert(15,'index.html') # like append operation L.append('index.html')
+>>> L
+[100, 'p1.log', 234, 'test.java', 'data', '10.20.30.40', 'index.html']
+>>> len(L)
+7
+>>> L[15]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+>>> L[6]
+'index.html'
+>>>
+>>> len(L)
+7
+>>> del(L[3])
+>>> L
+[100, 'p1.log', 234, 'data', '10.20.30.40', 'index.html']
+>>> del(L[-1])
+>>> L
+[100, 'p1.log', 234, 'data', '10.20.30.40']
+>>> del(L[15])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list assignment index out of range
+>>>
+>>> # string - immutable
+>>> s
+'abc'
+>>> del(s[1])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'str' object doesn't support item deletion
+>>>
+>>> help(list.pop)
+Help on method_descriptor:
+
+pop(self, index=-1, /)
+    Remove and return item at index (default last).
+
+    Raises IndexError if list is empty or index is out of range.
+
+>>> L
+[100, 'p1.log', 234, 'data', '10.20.30.40']
+>>> L.pop()
+'10.20.30.40'
+>>> L
+[100, 'p1.log', 234, 'data']
+>>> L.pop(1
+... )
+'p1.log'
+>>> L
+[100, 234, 'data']
+>>>
+>>> L=[] # empty list
+>>> L.append(100)
+>>> L.append('data1')
+>>> L.append('p1.c')
+>>> L.append('p2.cpp')
+>>> L.append('p1.c')
+>>> L.append('p1.c')
+>>> L.append('data1')
+>>> L.append(100)
+>>> L.append(100)
+>>> L.append(100)
+>>> L
+[100, 'data1', 'p1.c', 'p2.cpp', 'p1.c', 'p1.c', 'data1', 100, 100, 100]
+>>> len(L)
+10
+>>> L.count('p1.c')
+3
+>>> L.count('index.html')
+0
+>>> if L.count('index.html') == 0:
+...     print("There is no element name index.html")
+...
+There is no element name index.html
+>>>
+>>> L.index('p2.cpp')
+3
+>>> L[3]
+'p2.cpp'
+>>> L.index('data1')
+1
+>>> L.index('p1.c')
+2
+>>> "s" in "test" # char 's' is existing or not
+True
+>>> "p1.c" in L
+True
+>>> if "p1.c" in L:
+...     print("Yes p1.c is found at {} index".format(L.index("p1.c")))
+...     print(L[L.index("p1.c")]) # L[index]
+... else:
+...     print("Sorry p1.c is not exists")
+...
+Yes p1.c is found at 2 index
+p1.c
+>>>
+>>> sh=['tcsh','psh','bash','ash','csh','pxsh']
+>>>
+>>> sh.sort()
+>>> sh
+['ash', 'bash', 'csh', 'psh', 'pxsh', 'tcsh']
+>>>
+>>> sh=['tcsh','psh','bash','ash','csh','pxsh']
+>>>
+>>> sh.sort(reverse=True) # keyword argument -> function(a1=value)
+>>> sh
+['tcsh', 'pxsh', 'psh', 'csh', 'bash', 'ash']
+>>>
+>>> s="root:x:bin:bash"
+>>> type(s)
+<class 'str'>
+>>> len(s)
+15
+>>> # single ->Multiple
+>>> # str   -> list
+>>> # string.split() ->[]
+>>>
+>>> s.split(":")
+['root', 'x', 'bin', 'bash']
+>>>
+>>> s1="data1\tdata2\ndata3 data4"
+>>> s1.split()
+['data1', 'data2', 'data3', 'data4']
+>>>
+>>> L=s.split(":")
+>>> len(L)
+4
+>>> L
+['root', 'x', 'bin', 'bash']
+>>> L[0]
+'root'
+>>> L[1]='XYZ'
+>>> L
+['root', 'XYZ', 'bin', 'bash']
+>>> s2="data\100\test"
+>>>
+>>> s2.split("\")
+  File "<stdin>", line 1
+    s2.split("\")
+                ^
+SyntaxError: EOL while scanning string literal
+>>> s2.split("\\")
+['data@\test']
+>>>
+>>> s2="data\code\test"
+>>> s2.split("\\")
+['data', 'code\test']
+>>> s2="data\100\\test"
+>>> s2.split("\\")
+['data@', 'test']
+>>>
+>>> s3="d1\nd2\nd3\\nd4\\td5\\n"
+>>> s3
+'d1\nd2\nd3\\nd4\\td5\\n'
+>>> print(s3)
+d1
+d2
+d3\nd4\td5\n
+>>> L=[100,45.63,'data']
+>>> L.sort()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: '<' not supported between instances of 'str' and 'float'
+>>> len(L)
+3
+>>> len(L[0])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: object of type 'int' has no len()
+>>>
+
+>>> s='root:x:bin:bash'
+>>> s.split(":")
+['root', 'x', 'bin', 'bash']
+>>>
+>>> L=s.split(":")
+>>>
+>>> L
+['root', 'x', 'bin', 'bash']
+>>>
+>>> # list -> str
+>>> # []   -> ''
+>>>
+>>> # "".join(inputlist) ->'str'
+>>> #
+>>> "".join(L)
+'rootxbinbash'
+>>>
+>>> ":".join(L)
+'root:x:bin:bash'
+>>>
+>>> "\t".join(L)
+'root\tx\tbin\tbash'
+>>> print("\t".join(L))
+root    x       bin     bash
+>>> print("\n".join(L))
+root
+x
+bin
+bash
+>>> type("\n".join(L))
+<class 'str'>
+>>>
+>>>
+=============================================================================================
+
+ Write a python program:
+ -----------------------
+
+ STEP 1: create an empty list 
+
+ STEP 2: display size of the list 
+
+ STEP 3: use while loop - 5times 
+		read a hostname from <STDIN>
+		append(add a element) input hostname into existing list 
+ STEP 4: display size of the list 
+
+ STEP 5: using for loop - display list of elements (one by one) 
+
+>>>
+>>> hosts=[] # empty list
+>>> print("Size of the hosts:{}".format(len(hosts)))
+Size of the hosts:0
+>>>
+>>> c=0
+>>> while(c<5):
+...     var=input("Enter a hostname:") # interface to keyboard(STDIN)
+...     hosts.append(var) # adding element into existing list
+...     c=c+1
+...
+Enter a hostname:host01
+Enter a hostname:host02
+Enter a hostname:host03
+Enter a hostname:host04
+Enter a hostname:host05
+>>> print("Size of the hosts:{}".format(len(hosts)))
+Size of the hosts:5
+>>> for var in hosts:
+...     print(var)
+...
+host01
+host02
+host03
+host04
+host05
+>>>
+>>> L=[10,20,30,40,50]
+>>>
+>>> # Calculate sum of the list
+>>> L[0]+L[1]
+30
+>>> L[0]+L[1]+L[2]
+60
+>>> c=0
+>>> for var in L:
+...     c=c+var
+...
+>>> c
+150
+>>> while(False):
+...     print("Hello")
+...
+>>> while(False):
+...     print("Hello")
+... else:
+...     print("Thank you")
+...
+Thank you
+>>> c=0
+>>> while(c<3):
+...     print("Hello")
+...     c=c+1
+... else:
+...     print("Thank you!!!")
+...
+Hello
+Hello
+Hello
+Thank you!!!
+>>> c=0
+>>> if(c<3):
+...     print("Hello")
+...     c=c+1
+... else:
+...     print("Thank you!!!")
+...
+Hello
+>>> c
+1
+>>> 1<3
+True
+>>> for var in ['d1','d2','d3','d4','d5']:
+...     print(var)
+... else:
+...     print("Total no.of elements:5")
+...     print("-"*45)
+...
+d1
+d2
+d3
+d4
+d5
+Total no.of elements:5
+---------------------------------------------
+>>> L
+[10, 20, 30, 40, 50]
+>>> c=0
+>>> for var in L:
+...     c=c+var
+... else:
+...     print("Sum of the list:{}".format(c))
+...
+Sum of the list:150
+>>>
+===========================================================================================
+>>> for var in L:
+...     print(var)
+...
+10
+20
+30
+40
+50
+>>> c=0
+>>> while(c<len(L)):
+...     print(L[c])
+...     c=c+1
+...
+10
+20
+30
+40
+50
+>>>
+===========================================================================================
+ 
+ multiple initialization
+ -----------------------
+
+  variable = value
+   a=10
+   s='abc'
+   L=['d1','d2','d3']
+   
+ variable1,variable2,variable3,..variableN=value1,value2,value3..valueN
+ ========================================= ------------------------------
+ |------|
+ a,b,c=10,'abc',['d1','d2','d3']
+   | |      |           |
+   | |      |           |
+   |-|-------           |
+     |                  |
+     |__________________|
+
+  
+ L1,L2=[],[] 
+
+ s1,s2,count="data1","data2",3445
+
+ 
+>>>
+>>> a,b,c=10,'abc',['d1','d2','d3']
+>>>
+>>> a
+10
+>>> b
+'abc'
+>>> c
+['d1', 'd2', 'd3']
+>>>
+>>> v1,v2=10.35,0.34
+>>> v1
+10.35
+>>> v2
+0.34
+>>> v1,v2,v3=10
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: cannot unpack non-iterable int object
+>>> v1,v2,v3=10,20,30,40
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: too many values to unpack (expected 3)
+>>>
+>>> fsinfo=['xfs','/D1','120GB','/dev/sda1']
+>>> len(fsinfo)
+4
+>>> fstype=fsinfo[0]
+>>> fmount=fsinfo[1]
+>>> fsize=fsinfo[2]
+>>> fpart=fsinfo[-1]
+>>> fstype
+'xfs'
+>>> fmount
+'/D1'
+>>> fsize
+'120GB'
+>>> fpart
+'/dev/sda1'
+>>>
+>>> v1,v2,v3,v4=fsinfo
+>>> v1
+'xfs'
+>>> v2
+'/D1'
+>>> v3
+'120GB'
+>>> v4
+'/dev/sda1'
+>>>
+>>> v1,v2,v3,v4,v5=fsinfo
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: not enough values to unpack (expected 5, got 4)
+>>>
+>>> v1,v2,v3=fsinfo
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: too many values to unpack (expected 3)
+>>>
+===============================================================================================
+
+
+ List - Collection of ordered elements - index based - mutable  - []
+ |
+ tuple - Collection of ordered elements - index based - immutable  - ()
+
+ >>> L=['d1','d2','d3','d4']
+>>> len(L)
+4
+>>> t=('d1','d2',100,1.34)
+>>> len(t)
+4
+>>> t[0]
+'d1'
+>>> t[-1]
+1.34
+>>> t[1:]
+('d2', 100, 1.34)
+>>> 'd1' in t
+True
+>>> t[1]='data'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+>>> del(t[1])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object doesn't support item deletion
+>>>
+>>>
+>>> for var in t:
+...     print(var)
+...
+d1
+d2
+100
+1.34
+>>> v1,v2=10,20
+>>> v1
+10
+>>> v2
+20
+>>> v1=10,20
+>>> type(v1)
+<class 'tuple'>
+>>> def fx():
+...     return 10,20
+...
+>>> fx()
+(10, 20)
+>>> v1,v2=fx()
+>>> v1
+10
+>>> v2
+20
+>>> v1=(10,20) # same as v1=10,20
+>>> type(v1)
+<class 'tuple'>
+>>>
+>>> def fx():
+...     return 10,20,30,40,50
+...
+>>> fx()
+(10, 20, 30, 40, 50)
+>>> rv=fx()
+>>> type(rv)
+<class 'tuple'>
+>>>
+>>> rv[1:4]
+(20, 30, 40)
+>>>
+>>> len(fx())
+5
+>>> a,b,c,d,e=fx()
+>>> a
+10
+>>> b
+20
+>>> c
+30
+>>> d
+40
+>>> e
+50
+=============================================================================================
+
+>>> # import ab
+>>> # ab.var ->("/etc/passwd","/etc/pam.d","/etc/network","/etc/issues")
+>>>
+>>> t=("/etc/passwd","/etc/pam.d","/etc/network","/etc/issues")
+>>>
+>>> # /etc/pam.d -> /etc/sysconfig
+>>> # add -> /etc/service
+>>>
+>>> type(t)
+<class 'tuple'>
+>>>
+>>> list(t)
+['/etc/passwd', '/etc/pam.d', '/etc/network', '/etc/issues']
+>>>
+>>> tv=list(t)
+>>> tv.append("/etc/service")
+>>> tv[1]='/etc/sysconfig'
+>>> tv
+['/etc/passwd', '/etc/sysconfig', '/etc/network', '/etc/issues', '/etc/service'
+
+>>> t
+('/etc/passwd', '/etc/pam.d', '/etc/network', '/etc/issues')
+>>> tuple(tv)
+('/etc/passwd', '/etc/sysconfig', '/etc/network', '/etc/issues', '/etc/service'
+
+>>>
+>>> t1=tuple(tv)
+>>> t1
+('/etc/passwd', '/etc/sysconfig', '/etc/network', '/etc/issues', '/etc/service'
+
+>>> type('')
+<class 'str'>
+>>>
+>>> type([])
+<class 'list'>
+>>>
+>>> type(())
+<class 'tuple'>
+>>>
+>>> type({})
+<class 'dict'>
+>>>
+
+==============================================================================================
+
+
+ Q1. Given List
+ ------------------
+
+  EMP=['101,kumar,sales,pune,1000\n','202,arun,prod,bglore,2000\n','304,anu,HR,hyd,3000\n']
+
+  display - employee name - working city name
+  calculate sum of emp's cost 
+
+  Emp name is: kumar		working city:pune
+  Emp name is: arun		working city:bglore
+  Emp name is: anu		working city:hyd
+  -------------------------------------------------
+	Sum of emp's cost:  6000
+  ------------------------------------------------
+
+>>>
+>>> # import ab
+>>> # ab.var ->("/etc/passwd","/etc/pam.d","/etc/network","/etc/issues")
+>>>
+>>> t=("/etc/passwd","/etc/pam.d","/etc/network","/etc/issues")
+>>>
+>>> # /etc/pam.d -> /etc/sysconfig
+>>> # add -> /etc/service
+>>>
+>>> type(t)
+<class 'tuple'>
+>>>
+>>> list(t)
+['/etc/passwd', '/etc/pam.d', '/etc/network', '/etc/issues']
+>>>
+>>> tv=list(t)
+>>> tv.append("/etc/service")
+>>> tv[1]='/etc/sysconfig'
+>>> tv
+['/etc/passwd', '/etc/sysconfig', '/etc/network', '/etc/issues', '/etc/service
+
+>>> t
+('/etc/passwd', '/etc/pam.d', '/etc/network', '/etc/issues')
+>>> tuple(tv)
+('/etc/passwd', '/etc/sysconfig', '/etc/network', '/etc/issues', '/etc/service
+
+>>>
+>>> t1=tuple(tv)
+>>> t1
+('/etc/passwd', '/etc/sysconfig', '/etc/network', '/etc/issues', '/etc/service
+
+>>> type('')
+<class 'str'>
+>>>
+>>> type([])
+<class 'list'>
+>>>
+>>> type(())
+<class 'tuple'>
+>>>
+>>> type({})
+<class 'dict'>
+>>>
+>>>
+>>> EMP=['101,kumar,sales,pune,1000\n']
+>>>
+>>> EMP[0]
+'101,kumar,sales,pune,1000\n'
+>>> type(EMP)
+<class 'list'>
+>>> type(EMP[0])
+<class 'str'>
+>>>
+>>> EMP[0].split(",")
+['101', 'kumar', 'sales', 'pune', '1000\n']
+>>> EMP[0].split(",")[0]
+'101'
+>>> EMP[0].split(",")[1]
+'kumar'
+>>> EMP[0].split(",")[3]
+'pune'
+>>> EMP[0].split(",")[-1]
+'1000\n'
+>>> EMP=['101,kumar,sales,pune,1000\n','202,arun,prod,bglore,2000\n','304,anu,
+,hyd,3000\n']
+>>> for var in EMP:
+...     print(var)
+...
+101,kumar,sales,pune,1000
+
+202,arun,prod,bglore,2000
+
+304,anu,HR,hyd,3000
+
+>>>
+>>> for var in EMP:
+...     print(var.split(","))
+...
+['101', 'kumar', 'sales', 'pune', '1000\n']
+['202', 'arun', 'prod', 'bglore', '2000\n']
+['304', 'anu', 'HR', 'hyd', '3000\n']
+>>>
+>>> for var in EMP:
+...     eid,ename,edept,ecity,ecost=var.split(",")
+...     print("Emp name is:{}\t working city:{}".format(ename,ecity))
+...
+Emp name is:kumar        working city:pune
+Emp name is:arun         working city:bglore
+Emp name is:anu  working city:hyd
+>>> total=0
+>>> for var in EMP:
+...     eid,ename,edept,ecity,ecost=var.split(",")
+...     print("Emp name is:{}\t working city:{}".format(ename,ecity))
+...     total=total+int(ecost)
+... else:
+...     print("-"*45)
+...     print("Sum of emp cost is:{}".format(total))
+...     print("-"*45)
+...
+Emp name is:kumar        working city:pune
+Emp name is:arun         working city:bglore
+Emp name is:anu  working city:hyd
+---------------------------------------------
+Sum of emp cost is:6000
+---------------------------------------------
+>>>
+>>> for var in EMP:
+...     print("Emp name is:{}".format(var.split(",")[1]))
+...
+Emp name is:kumar
+Emp name is:arun
+Emp name is:anu
+>>>
+>>> for var in EMP:
+...     print("Emp name is:{}\tCity:{}".format(var.split(",")[1],var.split(","
+-2]))
+...
+Emp name is:kumar       City:pune
+Emp name is:arun        City:bglore
+Emp name is:anu City:hyd
+>>>
+>>>
+
+
+
+ Q2. L=['d1\n','d2\n','d3\n','d4\n','d5\n','d6\n','d7\n']
+
+  display - 1st 2 elements
+  display - last 4 elements 
+  display - 1st index to 5th index
+
+  Note: slicing 
+ >>> L=['d1\n','d2\n','d3\n','d4\n','d5\n','d6\n','d7\n']
+>>>
+>>> L[0:3]
+['d1\n', 'd2\n', 'd3\n']
+>>> L[0:2]
+['d1\n', 'd2\n']
+>>>
+>>> L[-4:]
+['d4\n', 'd5\n', 'd6\n', 'd7\n']
+>>>
+>>> L[1:6]
+['d2\n', 'd3\n', 'd4\n', 'd5\n', 'd6\n']
+>>>
+ 
+
+
+
+>>> L[1:6]
+['d2\n', 'd3\n', 'd4\n', 'd5\n', 'd6\n']
+>>>
+>>> for var in L[1:6]:
+...     print(var)
+...
+d2
+
+d3
+
+d4
+
+d5
+
+d6
+
+>>> for var in L[1:6]:
+...     print(var.strip())
+...
+d2
+d3
+d4
+d5
+d6
+>>>
+#########################################################################################
+
+
+
+
+
+ Q3. servers=('unix','aix','linux','OL5','OL6','RHL6','OL7','OL8')
+
+    ignore following server names - aix,OL5,OL6,OL7 - display remaining server name to monitor.
+
+
+
+>>> L=['d1\n','d2\n','d3\n','d4\n','d5\n','d6\n','d7\n'
+... ]
+>>>
+>>> L=['d1\n','d2\n','d3\n','d4\n','d5\n','d6\n','d7\n']
+>>>
+>>> L[0:3]
+['d1\n', 'd2\n', 'd3\n']
+>>> L[0:2]
+['d1\n', 'd2\n']
+>>>
+>>> L[-4:]
+['d4\n', 'd5\n', 'd6\n', 'd7\n']
+>>>
+>>> L[1:6]
+['d2\n', 'd3\n', 'd4\n', 'd5\n', 'd6\n']
+>>>
+>>> for var in L[1:6]:
+...     print(var)
+...
+d2
+
+d3
+
+d4
+
+d5
+
+d6
+
+>>> for var in L[1:6]:
+...     print(var.strip())
+...
+d2
+d3
+d4
+d5
+d6
+>>>
+>>>
+>>> servers=('unix','aix','linux','OL5','OL6','RHL6','OL7','OL8')
+>>> for var in servers:
+...     print(var)
+...
+unix
+aix
+linux
+OL5
+OL6
+RHL6
+OL7
+OL8
+>>> for var in servers:
+...     if(var == "aix" or var == "OL5" or var == "OL6" or var == "OL7"):
+...             continue
+...     else:
+...             print(var)
+...
+unix
+linux
+RHL6
+OL8
+>>> for var in servers:
+...     if(not var == "aix" or var == "OL5" or var == "OL6" or var == "OL7"):
+...             print(var)
+...
+unix
+linux
+OL5
+OL6
+RHL6
+OL7
+OL8
+>>> for var in servers:
+...     if not(var == "aix" or var == "OL5" or var == "OL6" or var == "OL7"):
+...             print(var)
+...
+unix
+linux
+RHL6
+OL8
+>>>
+
+
+>>> s1="1000\n"
+>>> int(s1)
+1000
+>>> s1.strip()
+'1000'
+>>>
+>>> int(s1.strip())
+1000
+>>> L
+['d1\n', 'd2\n', 'd3\n', 'd4\n', 'd5\n', 'd6\n', 'd7\n']
+>>> L[1:6]
+['d2\n', 'd3\n', 'd4\n', 'd5\n', 'd6\n']
+>>> for var in L[1:6]:
+...     print(var.strip())
+...
+d2
+d3
+d4
+d5
+d6
+>>> s='abc\n'
+>>> s.upper()
+'ABC\n'
+>>> s
+'abc\n'
+>>> s.strip()
+'abc'
+>>> s
+'abc\n'
+>>> s1='abc:'
+>>> s1.strip()
+'abc:'
+>>> s1.strip(":")
+'abc'
+>>> s1
+'abc:'
+>>> L=[]
+>>> L.append("D1")
+>>> L.append("D2")
+>>> L
+['D1', 'D2']
+>>> L.pop(1)
+'D2'
+>>> L
+['D1']
+>>>
+
+
+==============================================================================================
+
+ FileHandling
+ -------------
+		    input()			print()
+ Keyboard (STDIN) -------------Script ---------------------Monitor(STDOUT)
+			      =========
+				 |
+				 |read/write
+				 |
+			      FILE(storage)
+
+ 1. reading data from FILE ->script ->display to monitor
+ 
+ 2. script -> create a newFILE ->Write data to FILE
+
+ 3. reading data from oneFILE ->script-> create/write data to another FILE
+
+
+ +---------------------------------+
+ |              fobj=0x1234
+ | user level: python  <------(5)-----|        fobj.read() ->' ' 
+ |              |(1)                  |        fobj.readlines() -> [ ]
+ ---------------|-------------------- |
+ | Kernel       |(2)                  |
+ |              FS-DD-DC|[ D1..Dn ]0x1234 (4)
+ |		      | |
+ +--------------------|-|------------
+ |		      | |
+ | H/W: Storage      ....(3)
+ |
+ +----------------------------------+
+
+  open a existing file --> fobj=open("filename","mode")
+  read a content           fobj.read()/fobj.readlines()
+  close a file             fobj.close()
+
+  mode
+  ----
+  read ('r')
+  write('w')
+  append('a')
+
+  
+
+ FH=open("emp.csv","r") <-
+     |                    |
+     OS  [D1,D2,...Dn]0x1234
+     |    |           ======
+    H/W --  
+    
+  
+   0x1234.read() ->"D1,D2,..Dn"  -->[    ]0x1234
+	
+   0x1234.read() ->""
+
+   open("emp.csv","r")
+    |
+    OS
+    |
+    H/w
+ 
+ 
+ 1. reading data from FILE ->script ->display to monitor
+ 
+ FH=open("inputfile","r")
+ s=FH.read()
+ FH.close()
+
+    (or)
+
+ FH=open("inputfile","r")
+ L=FH.readlines()
+ FH.close()
+ 
+ 2.  script -> create a newFILE ->Write data to FILE
+
+ WH=open("Resultfile","w")
+
+ WH.write("data\n")
+ WH.write(str(23342)+"\n")
+ WH.write("name"+","+"dept"+","+"place"+","+str(13343)+"\n")
+ WH.close()
+
+ 
+ 3. reading data from oneFILE ->script-> create/write data to another FILE
+
+ FH=open("inputfile")
+ s=FH.read()
+ FH.close()
+
+ WH=open("result","w")
+ WH.write(s)
+ WH.close()
+
+ # like - cp inputfile resultfile 
+ 
+
+>>> FH=open("C:\\Users\\Public\\Pictures\\Sample Pictures\\koala.jpg","rb")
+>>>
+>>> WH=open("D:\\test1.png","wb")
+>>>
+>>> s=FH.read()
+>>>
+>>> WH.write(s)
+780831
+>>> WH.close()
+>>> FH.close()
+>>>
+===========================================================================================
+
+ block style
+ --------------
+ with as - python keywords 
+
+ with open("inputfile","mode") as fileHandler:
+	fileHander.read()
+	   (or)
+	fileHandler.readlines()
+
+
+ with open("resultfile.log","w") as WH:
+	WH.write("Data\n")
+	WH.write("Data\n")
+
+
+
+>>> F=open("D:\\emp.csv")
+>>> # F.read() # F.readlines()
+>>> F.close()
+>>>
+>>> FH=open("D:\\emp.csv")
+>>> for var in FH.readlines():
+...     print(var.strip())
+...
+ram,sales,pune,1000
+ashi,prod,bglore,2345
+xerox,sales,chennai,45900
+yahoo,prod,pune,32450
+anu,HR,hyd,4560
+biju,prod,bglore,4567
+vijay,hr,chennai,3453
+theeb,sales,hyd,5678
+nithin,prod,pune,1236
+>>> FH.close()
+>>> with open("D:\\emp.csv") as FH:
+...     for var in FH.readlines():
+...             print(var.strip())
+...
+ram,sales,pune,1000
+ashi,prod,bglore,2345
+xerox,sales,chennai,45900
+yahoo,prod,pune,32450
+anu,HR,hyd,4560
+biju,prod,bglore,4567
+vijay,hr,chennai,3453
+theeb,sales,hyd,5678
+nithin,prod,pune,1236
+>>> with open("D:\\emp.csv") as FH:
+...     print(FH.readlines())
+...
+['ram,sales,pune,1000\n', 'ashi,prod,bglore,2345\n', 'xerox,sales,chennai
+n', 'yahoo,prod,pune,32450\n', 'anu,HR,hyd,4560\n', 'biju,prod,bglore,456
+vijay,hr,chennai,3453\n', 'theeb,sales,hyd,5678\n', 'nithin,prod,pune,123
+>>>
+>>> with open("D:\\test.html","w") as WH:
+...     WH.write("<html>\n")
+...     WH.write("<head>\n")
+...     WH.write("</html>\n")
+...
+7
+7
+8
+>>>
+>>>
+>>> with open("D:\\test.html") as F:
+...     print(F.read())
+...
+<html>
+<head>
+</html>
+
+>>> L=["eth0","eth1","lo","eth2","eth3"]
+>>> # command line
+>>> with open("D:\\interface.log","w") as WH:
+...     for v in L:
+...             WH.write(v+"\n")
+...
+5
+5
+3
+5
+5
+>>> with open("D:\\interface.log") as FH:
+...     print(FH.read())
+...
+eth0
+eth1
+lo
+eth2
+eth3
+================================================================================================
+ list/tuple -  collection of ordered elements - index based 
+		list - mutable 
+		tuple - immutable 
+
+ dict - Collection of unordered elements - key based - data ->{"Key":"Value"} 
+							      ----------------
+	dict -mutable 
+
+ other program languages ->Hash,associated array,map ->in python dict
+
+  d={"Key1":"Value1","Key2":"Value2","Key3":"Value3",..."Kn":"Vn"}
+                    |               |               |
+	
+       Key    |   Value
+       ----------------
+       Key1   |   Value1
+       -----------------
+       Key2   |   Value2
+       -----------------
+       ..
+       KeyN   |   ValueN
+      ------------------
+
+ 
+ web-cgi ->form process data
+  in html                                                  ______________
+  Login:<input type='text' name='n1' value=''>  ==>  Login:|__admin______|
+							 (submit) ----------->{"n1":"admin"}
+
+ webparsing  <a href='https://www.ab.com'>
+	      | -------------------------
+		 {'href':'https://www.ab.com'}
+ osenviron
+ fsmeta
+ large volm ->{}
+
+ sh['A1'] ->Value
+     		
+
+  add/modify/delete - mutable 
+   |   |      |
+  key key    key
+
+ Syntax:-
+ ---------
+ dict_name={"Key":"Value"}
+
+ emp={"name":"arun","eid":"E123","edept":"sales","IP":"10.20.30.40"}
+
+  Key    |   Value
+  ----------------
+  name   |   arun
+  ----------------
+  eid    |   E123
+  ----------------
+  edept  |   sales
+  ----------------
+  IP     |  10.20.30.40
+  ---------------------
+ 
+
+ dict - key - must be unique 
+	---
+	 |__int,float,str,bytes,True/False,() <== immutable 
+
+ 
+ Write a python program
+
+ STEP 1 : create an empty dict
+
+ STEP 2 : use for loop - range() method - 5times 
+		read a alias (key) from <STDIN>   ex: host01
+		read a ipaddress(value) from <STDIN> ex: 10.20.30.40
+		add input data(alias,ipaddress) to existing dict
+ 
+ STEP 3 : display dict size
+ STEP 4 : display key/value (alias and ipaddress) to monitor.
+ 
+ 
+
+>> emp={"name":"arun","eid":"E123","edept":"sales","IP":"10.20.30.40"}
+>> type(emp)
+class 'dict'>
+>> len(emp)
+
+>> # How to fetch single data from dict?
+>> # dictname['key']
+>>
+>> emp['name']
+arun'
+>> emp['edept']
+sales'
+>> emp['NAME']
+raceback (most recent call last):
+ File "<stdin>", line 1, in <module>
+eyError: 'NAME'
+>> d={"K1":100,"K2":200,"K1":300}
+>> d
+'K1': 300, 'K2': 200}
+>>
+>> # How to modify existing data from dict?
+>> # dictname['oldkey']=updated_value
+>>
+>> emp['edept']='HR'
+>> emp
+'name': 'arun', 'eid': 'E123', 'edept': 'HR', 'IP': '10.20.30.40'}
+>>
+>> # How to add new data(Key:Value) to existing dict?
+>> # dictname['newkey']=value
+>>
+>> emp['place']='pune'
+>> emp
+'name': 'arun', 'eid': 'E123', 'edept': 'HR', 'IP': '10.20.30.40', 'place': '
+e'}
+>>
+>> emp['place']
+pune'
+>> emp['place']='Bglore'
+>> emp
+'name': 'arun', 'eid': 'E123', 'edept': 'HR', 'IP': '10.20.30.40', 'place': '
+ore'}
+>> len(emp)
+
+>> emp[0]
+raceback (most recent call last):
+ File "<stdin>", line 1, in <module>
+eyError: 0
+>>
+>> d={10:'v1',1.34:'v2',True:'v3',():'v4'}
+>>
+>> d={[]:"V1"}
+raceback (most recent call last):
+ File "<stdin>", line 1, in <module>
+ypeError: unhashable type: 'list'
+>>
+>> emp
+'name': 'arun', 'eid': 'E123', 'edept': 'HR', 'IP': '10.20.30.40', 'place': '
+ore'}
+>>
+>> del(emp['place'])
+>> emp
+'name': 'arun', 'eid': 'E123', 'edept': 'HR', 'IP': '10.20.30.40'}
+>> emp['name']
+arun'
+>> emp['eid']
+E123'
+>> emp['edept']
+HR'
+>> for var in emp:
+..     print(var)
+..
+ame
+id
+dept
+P
+>> for var in emp:
+..     print(emp[var])
+..
+run
+123
+R
+0.20.30.40
+>> for var in emp:
+..     print("{}\t{}".format(var,emp[var]))
+..
+ame    arun
+id     E123
+dept   HR
+P      10.20.30.40
+>> d={} # empty dict
+>>
+>> d['K1']='V1'
+>> d['K2']='p1.log'
+>> d['K3']=12331
+>>
+>> d
+'K1': 'V1', 'K2': 'p1.log', 'K3': 12331}
+>>
+>> d['K1']='Data1'
+>> d
+'K1': 'Data1', 'K2': 'p1.log', 'K3': 12331}
+>>
+>> hosts={}
+>> for var in range(5):
+..     K=input("Enter a alias name:")
+..     V=input("Enter {} IP-Address:".format(K))
+..     hosts[K]=V # adding newdata to existing dict
+..
+nter a alias name:host01
+nter host01 IP-Address:10.20.30.40
+nter a alias name:host02
+nter host02 IP-Address:10.33.23.45
+nter a alias name:host03
+nter host03 IP-Address:10.34.42.34
+nter a alias name:host04
+nter host04 IP-Address:10.23.42.55
+nter a alias name:host05
+nter host05 IP-Address:10.55.42.66
+>> hosts
+'host01': '10.20.30.40', 'host02': '10.33.23.45', 'host03': '10.34.42.34', 'h
+04': '10.23.42.55', 'host05': '10.55.42.66'}
+>> len(hosts)
+
+>> for var in hosts:
+..     print("{}\t{}".format(var,hosts[var]))
+..
+ost01  10.20.30.40
+ost02  10.33.23.45
+ost03  10.34.42.34
+ost04  10.23.42.55
+ost05  10.55.42.66
+>> hosts['host03']='127.0.0.1'
+>>
+>> for var in hosts:
+..     print("{}\t{}".format(var,hosts[var]))
+..
+ost01  10.20.30.40
+ost02  10.33.23.45
+ost03  127.0.0.1
+ost04  10.23.42.55
+ost05  10.55.42.66
+>>
+>> "D1" in ["D1","D2","D3"]
+rue
+>> "K1" in {"K1":"V1","K2":"V2"} # key is existing or not
+rue
+>> "V1" in {"K1":"V1","K2":"V2"} # key is existing or not
+alse
+>>
+###############################################################################################################################
+
+ d={}                                            ----  d=dict() <== in oops 
+
+ d['newkey']=Value - adding newdata to existing dict  -- d.setdefault("Key","Value")
+
+ d['oldkey']=updated_Value - modify existing data
+
+ del(d['oldkey']) - delete particular data           --- d.pop('key') -> removed_value
+
+ d['Key']                                            --- d.get('key') -->Value/None
+
+ # Exception - KeyError 
+
+ for var in d: # iterate keys			     --- d.keys() ->['k1','k2','k3']
+	# to get list of keys			     --- d.value() ->['v1','v2','v3']
+
+
+
+
+
+ >> emp={"name":"arun","eid":"E123","edept":"sales","IP":"10.20.30.40"}
+>> type(emp)
+class 'dict'>
+>> len(emp)
+
+>> # How to fetch single data from dict?
+>> # dictname['key']
+>>
+>> emp['name']
+arun'
+>> emp['edept']
+sales'
+>> emp['NAME']
+raceback (most recent call last):
+ File "<stdin>", line 1, in <module>
+eyError: 'NAME'
+>> d={"K1":100,"K2":200,"K1":300}
+>> d
+'K1': 300, 'K2': 200}
+>>
+>> # How to modify existing data from dict?
+>> # dictname['oldkey']=updated_value
+>>
+>> emp['edept']='HR'
+>> emp
+'name': 'arun', 'eid': 'E123', 'edept': 'HR', 'IP': '10.20.30.40'}
+>>
+>> # How to add new data(Key:Value) to existing dict?
+>> # dictname['newkey']=value
+>>
+>> emp['place']='pune'
+>> emp
+'name': 'arun', 'eid': 'E123', 'edept': 'HR', 'IP': '10.20.30.40', 'place': 'p
+e'}
+>>
+>> emp['place']
+pune'
+>> emp['place']='Bglore'
+>> emp
+'name': 'arun', 'eid': 'E123', 'edept': 'HR', 'IP': '10.20.30.40', 'place': 'B
+ore'}
+>> len(emp)
+
+>> emp[0]
+raceback (most recent call last):
+ File "<stdin>", line 1, in <module>
+eyError: 0
+>>
+>> d={10:'v1',1.34:'v2',True:'v3',():'v4'}
+>>
+>> d={[]:"V1"}
+raceback (most recent call last):
+ File "<stdin>", line 1, in <module>
+ypeError: unhashable type: 'list'
+>>
+>> emp
+'name': 'arun', 'eid': 'E123', 'edept': 'HR', 'IP': '10.20.30.40', 'place': 'B
+ore'}
+>>
+>> del(emp['place'])
+>> emp
+'name': 'arun', 'eid': 'E123', 'edept': 'HR', 'IP': '10.20.30.40'}
+>> emp['name']
+arun'
+>> emp['eid']
+E123'
+>> emp['edept']
+HR'
+>> for var in emp:
+..     print(var)
+..
+ame
+id
+dept
+P
+>> for var in emp:
+..     print(emp[var])
+..
+run
+123
+R
+0.20.30.40
+>> for var in emp:
+..     print("{}\t{}".format(var,emp[var]))
+..
+ame    arun
+id     E123
+dept   HR
+P      10.20.30.40
+>> d={} # empty dict
+>>
+>> d['K1']='V1'
+>> d['K2']='p1.log'
+>> d['K3']=12331
+>>
+>> d
+'K1': 'V1', 'K2': 'p1.log', 'K3': 12331}
+>>
+>> d['K1']='Data1'
+>> d
+'K1': 'Data1', 'K2': 'p1.log', 'K3': 12331}
+>>
+>> hosts={}
+>> for var in range(5):
+..     K=input("Enter a alias name:")
+..     V=input("Enter {} IP-Address:".format(K))
+..     hosts[K]=V # adding newdata to existing dict
+..
+nter a alias name:host01
+nter host01 IP-Address:10.20.30.40
+nter a alias name:host02
+nter host02 IP-Address:10.33.23.45
+nter a alias name:host03
+nter host03 IP-Address:10.34.42.34
+nter a alias name:host04
+nter host04 IP-Address:10.23.42.55
+nter a alias name:host05
+nter host05 IP-Address:10.55.42.66
+>> hosts
+'host01': '10.20.30.40', 'host02': '10.33.23.45', 'host03': '10.34.42.34', 'ho
+04': '10.23.42.55', 'host05': '10.55.42.66'}
+>> len(hosts)
+
+>> for var in hosts:
+..     print("{}\t{}".format(var,hosts[var]))
+..
+ost01  10.20.30.40
+ost02  10.33.23.45
+ost03  10.34.42.34
+ost04  10.23.42.55
+ost05  10.55.42.66
+>> hosts['host03']='127.0.0.1'
+>>
+>> for var in hosts:
+..     print("{}\t{}".format(var,hosts[var]))
+..
+ost01  10.20.30.40
+ost02  10.33.23.45
+ost03  127.0.0.1
+ost04  10.23.42.55
+ost05  10.55.42.66
+>>
+>> "D1" in ["D1","D2","D3"]
+rue
+>> "K1" in {"K1":"V1","K2":"V2"} # key is existing or not
+rue
+>> "V1" in {"K1":"V1","K2":"V2"} # key is existing or not
+alse
+>> d['host01']
+raceback (most recent call last):
+ File "<stdin>", line 1, in <module>
+eyError: 'host01'
+>>
+>> hosts['host01']
+10.20.30.40'
+>> hosts['host06']
+raceback (most recent call last):
+ File "<stdin>", line 1, in <module>
+eyError: 'host06'
+>>
+>> hosts.get('host01')
+10.20.30.40'
+>> hosts.get('host06')
+>>
+>> hosts.get('host06') == None
+rue
+>> if(hosts.get('host06')):
+..     print("Yes")
+.. else:
+..     print("No")
+..
+o
+>> if(None):
+..     print("YeS")
+.. else:
+..     print("No")
+..
+o
+>> d
+'K1': 'Data1', 'K2': 'p1.log', 'K3': 12331}
+>>
+>> d.keys()
+ict_keys(['K1', 'K2', 'K3'])
+>>
+>> for var in d.keys():
+..     print(var)
+..
+1
+2
+3
+>> d.values()
+ict_values(['Data1', 'p1.log', 12331])
+>>
+>> for var in d.keys():
+..     print(d[var])
+..
+ata1
+1.log
+2331
+>> for var in d.keys():
+..     print(d.get(var))
+..
+ata1
+1.log
+2331
+>> for var in d.keys():
+..     print("{}\t{}".format(var,d.get(var)))
+..
+1      Data1
+2      p1.log
+3      12331
+>> d.values()
+ict_values(['Data1', 'p1.log', 12331])
+>>
+>> fnames=['p1.log','p2.log','p3.log','p4.log']
+>>
+>> d={}
+>> d['F1']=fnames[0]
+>> #################### adding new data to existing dict
+>> d
+'F1': 'p1.log'}
+>> for var in range(1,5):
+..     print("F"+str(var))
+..
+1
+2
+3
+4
+>> for var in range(1,5):
+..     for v in fnames:
+..             d["F"+str(var)]=v
+..
+>> d
+'F1': 'p4.log', 'F2': 'p4.log', 'F3': 'p4.log', 'F4': 'p4.log'}
+>> d={}
+>>
+>> c=0
+>> for var in range(1,5):
+..     d['F'+str(var)]=fnames[c]
+..     c=c+1
+..
+>> d
+'F1': 'p1.log', 'F2': 'p2.log', 'F3': 'p3.log', 'F4': 'p4.log'}
+>>
+>>
+>>
+##############################################################################################
+
+ list		vs		dict
+ -----				----
+ mutable			mutable
+ 
+ collection of			collection of unordered elements
+ ordered elements
+
+ data-single			data-pair(key:Value)
+ 
+  []				 {}
+
+ L=[]				d={}
+
+ L.append('data')		d['Key']='data' (or) d.setdefault('Key','Value')
+ L.insert(index,data)
+ 
+ L.pop() (or) L.pop(index)	d.pop('existing_key') vs del(d['existing_key'])
+
+ L[oldindex]=updated_value	d['oldkey']='updated_Value'
+
+ L[index]			d['key']
+    |				    |
+   int				   string
+ 
+ for var in L:			for var in d:
+	list elements		     list of dict keys (not value)
+ 
+ IndexError			KeyError 
+
+ L=["D1","D2","D3"]             d={"Key1":"D1","Key2":"D2","Key3":"D3"}
+ 
+ | D1 | D2  | D3 |              Key     |   Value
+ -----|-----|-----              ------------------
+   0     1    2                 Key1    |   D1
+  -3    -2    -1                -----------------
+                                Key2    |   D2
+                                -----------------
+                                Key3    |   D3
+
+ <input> in list		<key> in dictname # key is existing or not
+       
+ L[index]			d['key'] (or) d.get('key') 
+
+ 
+==============================================================================================
+>>> d={}
+>>> d['K1']='V1'
+>>> d
+{'K1': 'V1'}
+>>>
+>>> d['K1']='10.20.30.40'
+>>>
+>>> d.setdefault("url","https://www.python.org")
+'https://www.python.org'
+>>> d
+{'K1': '10.20.30.40', 'url': 'https://www.python.org'}
+>>>
+>>> d.setdefault("url","http://www.google.com")
+'https://www.python.org'
+>>> d
+{'K1': '10.20.30.40', 'url': 'https://www.python.org'}
+>>> d['url']=1234
+>>> d
+{'K1': '10.20.30.40', 'url': 1234}
+>>>
+===============================================================================================
+
+ Write a python program:
+
+  emp records -> dict
+
+  display emp details - key:value
+
+ Write a python program:
+
+  interface="eth0"
+  ip="10.20.30.40"
+  port=80
+  fname="/etc/passwd"
+  --------------------
+	|__ dict format -> display key:value 
+	
+ ===========================================================================================
+
+ >>>
+>>> emp={}
+>>> for v in range(5):
+...     K=input("Enter a emp field name:")
+...     V=input("Enter {} value:".format(K))
+...     if(K in emp):
+...             print("Sorry field name:{} is already exists".format(K))
+...     else:
+...             emp[K]=V # adding data to dict
+...
+Enter a emp field name:ename
+Enter ename value:arun
+Enter a emp field name:eid
+Enter eid value:343
+Enter a emp field name:dept
+Enter dept value:sales
+Enter a emp field name:contact
+Enter contact value:343433
+Enter a emp field name:ename
+Enter ename value:vijay
+Sorry field name:ename is already exists
+>>> for var in emp:
+...     print("{}\t|\t{}".format(var,emp[var]))
+...
+ename   |       arun
+eid     |       343
+dept    |       sales
+contact |       343433
+>>>
+>>> d={}
+>>>
+>>> d['interface']='eth0'
+>>> d['ip']='10.20.30.40'
+>>> d['port']=80
+>>> d['fname']='/etc/passwd'
+>>> d
+{'interface': 'eth0', 'ip': '10.20.30.40', 'port': 80, 'fname': '/etc/passwd'}
+>>>
+>>> for v in d:
+...     print("{}\t{}".format(v,d[v]))
+...
+interface       eth0
+ip      10.20.30.40
+port    80
+fname   /etc/passwd
+>>>
+================================================================================================================================
+
+List of List/tuple/dict
+tuple of List/tuple/dict
+dict of List/tuple/dict
+
+
+Recap
+-----
+L=["D1","D2","D3","D4",...."Dn"]
+       |    |    |    |
+     0    1    2    3       n
+
+L=[["D1","D2","D3"],("D4",10,2.45),{"K1":"V1","K2":"V2"}]
+  |----------------|--------------|---------------------|
+        0                1                 2
+       -3               -2                 -1
+type(L)
+<class 'list'>
+
+type(L[0])
+<class 'list'>
+
+type(L[1])
+<class 'tuple'>
+
+type(L[2])
+<class 'dict'>
+
+L[0] ->["D1","D2","D3"]
+         0     1   2
+        -3    -2   -1
+
+L[0][0] ->"D1"
+L[0][1] ->"D2"
+L[0][2] ->"D3"
+L[-1]----------------->{"K1":"V1","K2":"V2"}
+
+L[-1]["K1"] ->"V1"
+
+L[-1]["K2"] ->"V2"
+
+==========================================================================================
+>>> L=['D1',"D2","D3"]
+>>> L.append("D4")
+>>> L.append(True)
+>>> L.append(43)
+>>> L
+['D1', 'D2', 'D3', 'D4', True, 43]
+>>>
+>>> L.append("Dx","Dy")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: append() takes exactly one argument (2 given)
+>>>
+>>> L.append(["Dx","Dy"])
+>>> L
+['D1', 'D2', 'D3', 'D4', True, 43, ['Dx', 'Dy']]
+>>> L.append(("Da","Db","Dc"))
+>>> L
+['D1', 'D2', 'D3', 'D4', True, 43, ['Dx', 'Dy'], ('Da', 'Db', 'Dc')]
+>>> L.append({"K1":"V1"})
+>>> L
+['D1', 'D2', 'D3', 'D4', True, 43, ['Dx', 'Dy'], ('Da', 'Db', 'Dc'), {'K1': '
+}]
+>>>
+>>> L.append('D1')
+>>> L
+['D1', 'D2', 'D3', 'D4', True, 43, ['Dx', 'Dy'], ('Da', 'Db', 'Dc'), {'K1': '
+}, 'D1']
+>>> L[-1]
+'D1'
+>>> for var in L:
+...     print(var)
+...
+D1
+D2
+D3
+D4
+True
+43
+['Dx', 'Dy']
+('Da', 'Db', 'Dc')
+{'K1': 'V1'}
+D1
+>>> L=[["D1","D2","D3"],("D4","D5")] # List of list; List of tuple
+>>> type(L)
+<class 'list'>
+>>> len(L)
+2
+>>> L[0]
+['D1', 'D2', 'D3']
+>>> L[1]
+('D4', 'D5')
+>>> L[0][0]
+'D1'
+>>> L[0][1]
+'D2'
+>>> L[0][2]
+'D3'
+>>> L[1][0]
+'D4'
+>>> L[1][1]
+'D5'
+>>> L[0][1]="Data-1"
+>>> L
+[['D1', 'Data-1', 'D3'], ('D4', 'D5')]
+>>> L[0][2]="Data-2"
+>>> L
+[['D1', 'Data-1', 'Data-2'], ('D4', 'D5')]
+>>> L.append("Data-3")
+>>> L
+[['D1', 'Data-1', 'Data-2'], ('D4', 'D5'), 'Data-3']
+>>>
+>>> L[0].append("Data-4")
+>>> L
+[['D1', 'Data-1', 'Data-2', 'Data-4'], ('D4', 'D5'), 'Data-3']
+>>>
+>>> L[1]
+('D4', 'D5')
+>>> L[1][0]
+'D4'
+>>> L[1][0]='Dx'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+>>>
+>>> L=[]
+>>> L=[{"url1":"abc.com","url2":"xyz.org","url3":"test.com"},{"url1":"oracle.
+"}]
+>>> len(L)
+2
+>>> L[0]
+{'url1': 'abc.com', 'url2': 'xyz.org', 'url3': 'test.com'}
+>>> L[0].keys()
+dict_keys(['url1', 'url2', 'url3'])
+>>> L[1]
+{'url1': 'oracle.com'}
+>>> L[0]['url1']
+'abc.com'
+>>> L[1]['url1']
+'oracle.com'
+>>> L[0]['url3']
+'test.com'
+>>> type(L)
+<class 'list'>
+>>> type(L[1])
+<class 'dict'>
+>>>
+
+
+
+>>>
+>>> t=([],[]) # tuple of list
+>>> type(t)
+<class 'tuple'>
+>>> len(t)
+2
+>>> type(t[0])
+<class 'list'>
+>>> t[0].append("D1")
+>>> t[0].append("D2")
+>>> t[0].append("D3")
+>>>
+>>> t[1].append("D4")
+>>> t[1].append("D5")
+>>> len(t)
+2
+>>> t
+(['D1', 'D2', 'D3'], ['D4', 'D5'])
+>>> t[0][0]
+'D1'
+>>> t[0][1]
+'D2'
+>>> t[1][0]
+'D4'
+>>> t=({"K1":"V1","K2":"V2"},{"K1":100,"K2":200,"K3":300})
+>>> t[0]
+{'K1': 'V1', 'K2': 'V2'}
+>>> t[0]['K1']
+'V1'
+>>> t[0]['K2']
+'V2'
+>>> t[1]['K1']
+100
+>>> t[1]['K1']="Data"
+>>> type(t)
+<class 'tuple'>
+>>> t[1]="Data"
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+>>>
+>>> type(t[1])
+<class 'dict'>
+>>>
+
+
+
+>>> t=([],{},("D1","D2"))
+>>> len(t)
+3
+>>> type(t)
+<class 'tuple'>
+>>> type(t[0])
+<class 'list'>
+>>>
+>>> t[0].append("F1.log")
+>>> t[0].append("F2.log")
+>>> type(t[1])
+<class 'dict'>
+>>> len(t[1])
+0
+>>> t[1]['K1']='V1'
+>>> t[1]['K2']='V2'
+>>> t[1]['K3']=134.45
+>>> len(t)
+3
+>>> t
+(['F1.log', 'F2.log'], {'K1': 'V1', 'K2': 'V2', 'K3': 134.45}, ('D1', 'D2'))
+>>>
+>>>
+
+d={"K1":"V1"} # 1key:1value 
+
+d={"K1":[],"K2":(),"K3":{}} # 1key: manyvalue 
+    ------  ======  ______
+     |       |      dict of dict
+     |       |
+     |     dict of tuple
+   dict of list
+
+
+
+>>>
+>>> emp={"names":[],"depts":[]} # dict of list
+>>>
+>>> emp['names']
+[]
+>>> type(emp)
+<class 'dict'>
+>>> type(emp['names'])
+<class 'list'>
+>>>
+>>> emp['names'].append("Arun")
+>>> emp['names'].append("vijay")
+>>> emp['names'].append("xerox")
+>>> emp['names'].append("yahoo")
+>>> emp['depts'].append('sales')
+>>> emp['depts'].append('prod')
+>>> emp['depts'].append('HR')
+>>> emp['depts'].append('QA')
+>>> emp
+{'names': ['Arun', 'vijay', 'xerox', 'yahoo'], 'depts': ['sales', 'prod', 'HR
+'QA']}
+>>>
+>>> print(emp)
+{'names': ['Arun', 'vijay', 'xerox', 'yahoo'], 'depts': ['sales', 'prod', 'HR
+'QA']}
+>>>
+>>> emp['names'][0]
+'Arun'
+>>> emp['depts'][0]
+'sales'
+>>> emp['names'][-1]
+'yahoo'
+>>> emp['depts'][0]
+'sales'
+>>> emp['depts'][1:]
+['prod', 'HR', 'QA']
+>>> emp['depts'][-2:]
+['HR', 'QA']
+>>>
+>>> d={"K1":("V1","V2","V3")} # dict of tuple
+>>>
+>>> d['K1'][0]
+'V1'
+>>> d['K1'][0]="Value"
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+>>>
+>>>
+
+
+>>> d={"K1":"V1","K1":"V2"}
+>>> d
+{'K1': 'V2'}
+>>>
+>>> d={"K1":{"K1":"V1","K2":"V2"},"K2":{"K1":100,"K2":200},"K3":{"K1":150,"K2":
+30}}
+>>> print(d)
+{'K1': {'K1': 'V1', 'K2': 'V2'}, 'K2': {'K1': 100, 'K2': 200}, 'K3': {'K1': 150
+ 'K2': 230}}
+>>> # dict of dict
+>>>
+>>> d['K1']['K1']
+'V1'
+>>> d['K1']['K1']='Value1'
+>>> d['K1']['K2']
+'V2'
+>>> d['K2']['K1']
+100
+>>> print(d)
+{'K1': {'K1': 'Value1', 'K2': 'V2'}, 'K2': {'K1': 100, 'K2': 200}, 'K3': {'K1':
+150, 'K2': 230}}
+>>>
+========================================================================================================================
+>>> import requests
+
+>>> r=requests.get("http://api.plos.org/search?q=title:DNA")
+>>> jd=r.text
+>>> pd=json.loads(jd)
+
+>>> pd['response']['numFound']
+5342
+>>> pd['response']['docs'][0]
+{'id': '10.1371/journal.pone.0000290', 'journal': 'PLoS ONE', 'eissn': '1932-62
+3', 'publication_date': '2007-03-14T00:00:00Z', 'article_type': 'Research Artic
+e', 'author_display': ['Rayna I. Kraeva', 'Dragomir B. Krastev', 'Assen Roguev'
+ 'Anna Ivanova', 'Marina N. Nedelcheva-Veleva', 'Stoyno S. Stoynov'], 'abstract
+: ['Nucleic acids, due to their structural and chemical properties, can form do
+ble-stranded secondary structures that assist the transfer of genetic informati
+n and can modulate gene expression. However, the nucleotide sequence alone is i
+sufficient in explaining phenomena like intron-exon recognition during RNA proc
+ssing. This raises the question whether nucleic acids are endowed with other at
+ributes that can contribute to their biological functions. In this work, we pre
+ent a calculation of thermodynamic stability of DNA/DNA and mRNA/DNA duplexes a
+ross the genomes of four species in the genus Saccharomyces by nearest-neighbor
+method. The results show that coding regions are more thermodynamically stable
+han introns, 3'-untranslated regions and intergenic sequences. Furthermore, ope
+ reading frames have more stable sense mRNA/DNA duplexes than the potential ant
+sense duplexes, a property that can aid gene discovery. The lower stability of
+he DNA/DNA and mRNA/DNA duplexes of 3'-untranslated regions and the higher stab
+lity of genes correlates with increased mRNA level. These results suggest that
+he thermodynamic stability of DNA/DNA and mRNA/DNA duplexes affects mRNA transc
+iption.'], 'title_display': 'Stability of mRNA/DNA and DNA/DNA Duplexes Affects
+mRNA Transcription', 'score': 6.520286}
+>>> pd['response']['docs'][0]['author_display']
+['Rayna I. Kraeva', 'Dragomir B. Krastev', 'Assen Roguev', 'Anna Ivanova', 'Mar
+na N. Nedelcheva-Veleva', 'Stoyno S. Stoynov']
+>>>
+>>> pd['response']['docs'][0]['author_display'][0]
+'Rayna I. Kraeva'
+>>> pd['response']['docs'][0]['author_display'][1]
+'Dragomir B. Krastev'
+>>> for v in pd['response']['docs'][0]['author_display']:
+...     print(v)
+...
+Rayna I. Kraeva
+Dragomir B. Krastev
+Assen Roguev
+Anna Ivanova
+Marina N. Nedelcheva-Veleva
+Stoyno S. Stoynov
+>>>
+>>> d={"K1":{"K1":[]}}
+>>>
+>>> d['K1']['K1'].append({"K1":"V1"})
+>>>
+>>> d['K1']['K1'].append({"K2":"V2"})
+>>> d
+{'K1': {'K1': [{'K1': 'V1'}, {'K2': 'V2'}]}}
+>>>
+>>> import pprint
+>>> d['K1']['K1']
+[{'K1': 'V1'}, {'K2': 'V2'}]
+>>>
+>>> d['K1']['K1'][0]['K1']
+'V1'
+>>>
+>>> pprint.pprint(d)
+{'K1': {'K1': [{'K1': 'V1'}, {'K2': 'V2'}]}}
+>>>
+
+
+>>> import json
+>>>
+>>> d={"K1":"V1","K2":"V2"}
+>>>
+>>> type(d)
+<class 'dict'>
+>>>
+>>> # python -->json
+>>> json.dumps(d)
+'{"K1": "V1", "K2": "V2"}'
+>>>
+>>> jd=json.dumps(d)
+>>> jd
+'{"K1": "V1", "K2": "V2"}'
+>>> type(jd)
+<class 'str'>
+>>>
+>>> json.loads(jd)
+{'K1': 'V1', 'K2': 'V2'}
+>>>
+
+
+##########################################################################################################
+
+ 
+
+
+
+
+
+
+
+
+
